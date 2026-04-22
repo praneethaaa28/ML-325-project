@@ -1,0 +1,6 @@
+#!/Users/KaitlinSloan/Library/CloudStorage/OneDrive-UniversityofTennessee/ThirdYear/COSC325/Assignments/ML-325-project/.venv_ml/bin/python3.12
+import sys
+from jupyter_client.kernelapp import main
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(main())
