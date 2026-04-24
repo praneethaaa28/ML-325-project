@@ -55,3 +55,7 @@ Evaluate: F1, ROC-AUC, confusion matrix
 Compile the full 4-page IEEE final report — pull the written paragraphs from everyone's notebooks and assemble Abstract, Methodology, Results, Conclusion, Workload Distribution
 Clean up the repo and add requirements.txt
 Push his own notebook + the final report
+
+
+# Final Report write up for Random Forest Classifier and Feature Importance
+To model student success utilizing exclusively sociodemographic and behavioral traits, a Random Forest Classifier was implemented. To ensure the model did not artificially inflate its accuracy, intermediate and final grades (G1, G2, G3) were dropped from the feature set to prevent data leakage. The raw dataset was processed using a ColumnTransformer that applied standard scaling to numeric variables and one-hot encoding to categorical variables. To optimize model performance while preventing overfitting, hyperparameters were tuned using a Stratified 5-Fold Cross-Validation approach, optimizing for the F1-score. Evaluated on the holdout test set, the tuned Random Forest achieved an F1-score of [Insert F1 Score from Output] and an ROC-AUC of [Insert ROC-AUC from Output]. Finally, a Gini-based feature importance analysis was plotted to observe which traits most heavily drove the model's decisions. The analysis revealed that factors such as [Insert Top 3 Features from Bar Chart, e.g., past failures, absences, and parental education] were the most significant indicators in classifying whether a student would ultimately pass or fail.
