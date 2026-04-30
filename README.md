@@ -49,12 +49,16 @@ Push his own notebook to the repo
 
 
 Manihams Suraparaju — Ensemble + Final Report
-Load and preprocess the raw dataset himself
+Load and preprocess the raw dataset himself  
 Train a soft voting ensemble (LR + RF + XGBoost) using sklearn's VotingClassifier
 Evaluate: F1, ROC-AUC, confusion matrix
 Compile the full 4-page IEEE final report — pull the written paragraphs from everyone's notebooks and assemble Abstract, Methodology, Results, Conclusion, Workload Distribution
 Clean up the repo and add requirements.txt
 Push his own notebook + the final report
+
+ # Final Report Write-up for Logistic Regression Baseline
+
+To establish an initial performance benchmark for predicting student pass/fail outcomes, I developed a Logistic Regression baseline model using sociodemographic and behavioral features. I carefully preprocessed the dataset to avoid data leakage by excluding the intermediate grades G1 and G2, as well as the final grade G3, which was used only to create the binary pass/fail label (pass = G3 ≥ 10). To handle the mix of data types, I used a ColumnTransformer pipeline that applied one-hot encoding to categorical variables and standard scaling to numeric features. I then used an 80/20 stratified train-test split to maintain balanced class representation in both sets. The baseline Logistic Regression model, trained with a maximum of 500 iterations, performed strongly on the test set, achieving an F1 score of 0.9346 and a ROC-AUC of 0.9790. The confusion matrix showed just 7 misclassifications out of 79 test samples, including 22 true negatives, 50 true positives, 4 false positives, and 3 false negatives. Overall, these results show that even a relatively simple linear model can effectively capture the relationship between student characteristics and academic outcomes, making it a strong baseline for comparison with more complex ensemble methods.
 
 
 # Final Report write up for Random Forest Classifier and Feature Importance
