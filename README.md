@@ -23,20 +23,20 @@ Install Scikit-Learn, Shap, Randomforest, Matplotlib, Pandas, Seaborn, and XGBoo
 ## Dataset
 
 - Overview
- - Total instances: 649
- - Features: 30
- - Missing values: 0
- - Target variable: G3 (final grade from 0–20)
+  - Total instances: 649
+  - Features: 30
+  - Missing values: 0
+  - Target variable: G3 (final grade from 0–20)
 - Key Dataset Notes
- - Two Portuguese secondary schools - Math & Portuguese subjects
- - G3 strongly correlated with G1 & G2
- - G1 & G2 excluded to prevent data leakage
- - Pass threshold: G3 >= 10 | Fail: G3 < 10
+  - Two Portuguese secondary schools - Math & Portuguese subjects
+  - G3 strongly correlated with G1 & G2
+  - G1 & G2 excluded to prevent data leakage
+  - Pass threshold: G3 >= 10 | Fail: G3 < 10
 - Feature Categories
- - Demographic:	Sex, age, address, family size, cohabitation
- - Parental: Mother’s & Father’s education & occupations
- - School-Related: School choice reason, guardian, travel time
- - Behavioral/Lifestyle:  Study time, absences, alcohol use, internet, activities
+  - Demographic:	Sex, age, address, family size, cohabitation
+  - Parental: Mother’s & Father’s education & occupations
+  - School-Related: School choice reason, guardian, travel time
+  - Behavioral/Lifestyle:  Study time, absences, alcohol use, internet, activities
 
 ## Team Contributions
 
@@ -76,25 +76,25 @@ Install Scikit-Learn, Shap, Randomforest, Matplotlib, Pandas, Seaborn, and XGBoo
 ## Preprocessing
 
 - Data Quality Check:
- - Verified zero missing values across all 33 features
- - Ensured dataset was ready for immediate Modeling
+  - Verified zero missing values across all 33 features
+  - Ensured dataset was ready for immediate Modeling
 - Creating Target Variable
- - Used G3 as Binary Classification: Pass = G3 >= 10, Fail = G3 <10
- - Dropped G1, G2, G3 from features to prevent data leakage
+  - Used G3 as Binary Classification: Pass = G3 >= 10, Fail = G3 <10
+  - Dropped G1, G2, G3 from features to prevent data leakage
 - Preprocessing Pipeline:
- - Categorical Features: OneHotEncoder(drop first category to avoid multicollinearity) 
- - Numeric Features: StandardScaler (mean =0, standard deviation = 1)
+  - Categorical Features: OneHotEncoder(drop first category to avoid multicollinearity) 
+  - Numeric Features: StandardScaler (mean =0, standard deviation = 1)
 - Had an 80/20 train/test split with stratification to maintain class balance( random_state = 42)
 
 ## Logistic Regression
 
 - Model Set Up: 
- - Established baseline performance for binary classification
- - Linear Model predicting probability of pass/ fail outcomes
- - Max iterations set to 500 to ensure convergence on preprocessed data
+  - Established baseline performance for binary classification
+  - Linear Model predicting probability of pass/ fail outcomes
+  - Max iterations set to 500 to ensure convergence on preprocessed data
 - Performance Metrics:
- - F1 Score 0.9346 (93.46%), meaning there was excellent precision-recall balance
- - ROC-AUC: 0.9790 (97.90%), meaning there was a near-perfect class separation 
+  - F1 Score 0.9346 (93.46%), meaning there was excellent precision-recall balance
+  - ROC-AUC: 0.9790 (97.90%), meaning there was a near-perfect class separation 
 - Confusion Matrix: 
 - True Negatives: 22 |  False Positives: 4
 - False Negatives: 3 |  True Positives: 50
@@ -118,13 +118,13 @@ Install Scikit-Learn, Shap, Randomforest, Matplotlib, Pandas, Seaborn, and XGBoo
 - Goal: measure impact of previous grades on predictions
 - Compare realistic features vs prediction power
 - Without G1/G2:
- - F1: 0.784, ROC-AUC: 0.625
- - Bias toward predicting “pass”
- - High pass recall (0.89), low fail recall (0.15)
+  - F1: 0.784, ROC-AUC: 0.625
+  - Bias toward predicting “pass”
+  - High pass recall (0.89), low fail recall (0.15)
 - With G1/G2:
- - F1: 0.920, ROC-AUC: 0.942
- - Improved accuracy and class separation
- - Model was much more reliable
+  - F1: 0.920, ROC-AUC: 0.942
+  - Improved accuracy and class separation
+  - Model was much more reliable
 - G1 & G2 are strong features for predicting
 - GB Model relies on previous performance, not behavior
 - Dependence on G1/G2 is limiting since it may not always be available
@@ -139,11 +139,12 @@ Install Scikit-Learn, Shap, Randomforest, Matplotlib, Pandas, Seaborn, and XGBoo
 
 ## Findings
 
-MODEL                     F1 SCORE    ROC-AUC     NOTES
-Logistic Regression       0.9346      0.9790      Leaky baseline (kept G3)
-Random Forest             0.7705      0.6067      No G1/G2/G3
-XGBoost (without G1/G2)   0.7840      0.6248      Leak-free,real world setting
-XGBoost (with G1/G2)      0.9200      0.9419      Mid-term prediction
+| MODEL | F1 SCORE | ROC-AUC | NOTES | 
+|---|---|---|---|
+| Logistic Regression | 0.9346 | 0.9790 | Leaky baseline (kept G3) | 
+| Random Forest | 0.7705 | 0.6067 | No G1/G2/G3 | 
+| XGBoost (without G1/G2) | 0.7840 | 0.6248 | Leak-free,real world setting | 
+| XGBoost (with G1/G2) | 0.9200 | 0.9419 | Mid-term prediction | 
 
 - Failing students were consistently the hardest to classify across all models.
 - Without grade features, absences, failures, and study time were the strongest predictors.
@@ -151,9 +152,9 @@ XGBoost (with G1/G2)      0.9200      0.9419      Mid-term prediction
 
 ## Contributors
 
-Justin Gurkin
-Kaitlin Sloan
-Manihams Suraparaju
-Praneetha Voona
+Justin Gurkin,
+Kaitlin Sloan,
+Manihams Suraparaju,
+Praneetha Voona,
 Joshua Grewe
 
